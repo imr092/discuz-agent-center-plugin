@@ -1,0 +1,38 @@
+<!--{if isAgent()}-->
+<div>
+    <script>
+        function create_agent_url() {
+            var x = new Ajax();
+            x.get('home.php?mod=spacecp&ac=plugin&id=agent_center:teamcp&agent_action=new', function(){});
+            window.location.href = 'home.php?mod=spacecp&ac=plugin&id=agent_center:teamcp';
+        }
+    </script>
+    <button onclick="create_agent_url()">生成代理链接</button>
+    <br />
+    <ul>
+        <!--{loop $allUrl $key $url}-->
+        <!--{eval $key = $key + 1}-->
+        <li>
+            链接{$key}：<a href="$url">$url</a>
+        </li>
+        <!--{/loop}-->
+    </ul>
+    <br />
+    当月注册人数: $custom_count_month
+    <br />
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>总注册人数</td>
+            <td>总发帖量</td>
+            <td>总主题数</td>
+        </tr>
+        <tr>
+            <td>$custom_count</td>
+            <td>$post_count</td>
+            <td>$thread_count</td>
+        </tr>
+    </table>
+</div>
+<!--{else}-->
+$_G['cache']['plugin']['agent_center']['how_to_become_agent']
+<!--{/if}-->

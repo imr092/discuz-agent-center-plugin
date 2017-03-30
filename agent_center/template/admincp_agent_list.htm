@@ -1,0 +1,25 @@
+现有代理账号<br/>
+<br/>
+<table border="1">
+    <thead>
+    <tr>
+        <td>代理账号</td>
+        <td>注册日期</td>
+        <td>注册ip地址</td>
+        <td>下级用户数</td>
+        <td>账户积分</td>
+    </tr>
+    </thead>
+    <tbody>
+    <!--{loop $all_agents $agentdata}-->
+    <!--{eval $reg_date = date('Y-m-d', $all_user_infos[$agentdata['uid']]['regdate'])}-->
+    <tr>
+        <td><a href="admin.php?action=plugins&operation=config&do=$do&identifier=agent_center&pmod=admincp&agent_id=$agentdata['uid']">$all_user_infos[$agentdata['uid']]['username']</a></td>
+        <td>$reg_date</td>
+        <td>$all_user_ips[$agentdata['uid']]['regip']</td>
+        <td>$agentdata['custom_count']</td>
+        <td>$all_user_infos[$agentdata['uid']]['credits']</td>
+    </tr>
+    <!--{/loop}-->
+    </tbody>
+</table>

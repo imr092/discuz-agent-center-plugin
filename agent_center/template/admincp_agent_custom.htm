@@ -1,0 +1,25 @@
+代理 $agent['username'] 的下级列表：<br />
+<br />
+<table border="1">
+    <thead>
+    <tr>
+        <td>下级用户名</td>
+        <td>注册时间</td>
+        <td>注册ip</td>
+        <td>发帖量</td>
+        <td>主题数</td>
+    </tr>
+    </thead>
+    <tbody>
+    <!--{loop $all_customs $custom}-->
+    <!--{eval $regdate = date('Y-m-d', $all_user_infos[$custom['custom_id']]['regdate'])}-->
+    <tr>
+        <td>$all_user_infos[$custom['custom_id']]['username']</td>
+        <td>$regdate</td>
+        <td>$all_user_ips[$custom['custom_id']]['regip']</td>
+        <td>$custom['post_count']</td>
+        <td>$custom['thread_count']</td>
+    </tr>
+    <!--{/loop}-->
+    </tbody>
+</table>
